@@ -27,7 +27,7 @@ jobs:
           rc-wording:     'RELEASE,alpha'
           tag-prefix:     'v'
         env:
-          GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: 'cat package.json'
         run: cat ./package.json
       - name: 'Output Step'
