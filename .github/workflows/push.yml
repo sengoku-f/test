@@ -12,7 +12,7 @@ jobs:
 
     steps:
       - name: 'Checkout source code'
-        uses: 'actions/checkout@v2'
+        uses: 'actions/checkout@v4'
         with:
           ref: ${{ github.ref }}
       - name: 'cat package.json'
@@ -23,10 +23,9 @@ jobs:
         with:
           minor-wording:  '添加,新增,增加,icon,图标'
           major-wording:  '主要,削减主要'
-          patch-wording:  '补丁,修复,修'     # Providing patch-wording will override commits
-                                            # defaulting to a patch bump.
+          patch-wording:  '补丁,修复,修'     # Providing patch-wording will override commits # defaulting to a patch bump.
           rc-wording:     'RELEASE,alpha'
-          tag-prefix: 'v'
+          tag-prefix:     'v'
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
       - name: 'cat package.json'
