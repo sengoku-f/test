@@ -1,11 +1,7 @@
 name: 'Bump Version'
 
 on:
-  push:
-    branches:
-      - 'rep'
-    paths:
-      - 'svg/**'
+  workflow_dispatch: # 手动触发事件
 
 jobs:
   bump-version:
