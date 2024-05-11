@@ -12,6 +12,7 @@ jobs:
           ref: rep
       - name: Reset promotion branch
         run: |
+          rm package.json
           git fetch origin main:main
           git reset --hard main
       - name: Create Pull Request
