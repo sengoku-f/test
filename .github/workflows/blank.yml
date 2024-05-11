@@ -12,8 +12,8 @@ jobs:
           ref: rep
       - name: Reset promotion branch
         run: |
+          rm -rf .github/workflows
           rm package.json
-          rm -rf .github
           git fetch origin main:main
           git reset --hard main
       - name: Create Pull Request
