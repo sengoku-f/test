@@ -4,7 +4,7 @@ on: pull_request
 jobs:
   automerge:
     runs-on: ubuntu-latest
-    if: github.actor == 'sengoku-f'
+    if: github.actor == 'github-actions'
     steps:
       - uses: peter-evans/enable-pull-request-automerge@v3
         with:
