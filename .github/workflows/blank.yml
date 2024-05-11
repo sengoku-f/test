@@ -12,11 +12,15 @@ jobs:
           ref: rep
       - name: Reset promotion branch
         run: |
-          rm -rf .github/workflows
-          rm package.json
           git fetch origin main:main
           git reset --hard main
+          rm -rf .github/workflows
+          rm package.json
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v6
         with:
           branch: production-promotion
+      - name: Enable Pull Request Automerge
+        run: gh pr merge --merge --auto "1"
+        env:
+          GH_TOKEN: ${{ secrets.PAT }}
