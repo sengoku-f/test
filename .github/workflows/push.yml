@@ -33,7 +33,7 @@ jobs:
           tag-prefix:     'v'
           skip-push:  'true'
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.MY_TOKEN }}
       - name: 'cat package.json'
         run: cat ./package.json
       - name: 'Output Step'
