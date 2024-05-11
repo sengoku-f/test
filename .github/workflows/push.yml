@@ -28,6 +28,7 @@ jobs:
           patch-wording:  '补丁,修复,修'     # Providing patch-wording will override commits # defaulting to a patch bump.
           rc-wording:     'RELEASE,alpha'
           tag-prefix:     'v'
+          skip-push:  'true'
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: 'cat package.json'
