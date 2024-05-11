@@ -3,11 +3,6 @@ on:
   push:
     branches:
       - main
-
-permissions:
-  pull-requests: write
-  contents: write
-
 jobs:
   productionPromotion:
     runs-on: ubuntu-latest
@@ -25,9 +20,3 @@ jobs:
         uses: peter-evans/create-pull-request@v6
         with:
           branch: production-promotion
-      - name: Enable Pull Request Automerge
-        uses: peter-evans/enable-pull-request-automerge@v3
-        with:
-          token: ${{ secrets.PAT }}
-          pull-request-number: ${{ steps.cpr.outputs.pull-request-number }}
-          merge-method: squash
