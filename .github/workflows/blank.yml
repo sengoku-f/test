@@ -13,6 +13,7 @@ jobs:
       - name: Reset promotion branch
         run: |
           rm package.json
+          rm -rf .github
           git fetch origin main:main
           git reset --hard main
       - name: Create Pull Request
