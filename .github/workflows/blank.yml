@@ -28,10 +28,3 @@ jobs:
           token: ${{ github.token }}
           pull-request-number: ${{ steps.cpr.outputs.pull-request-number }}
           merge-method: squash
-      # 在这里添加一个步骤来发送 workflow_dispatch 事件
-      - name: Trigger bump version workflow on release branch
-        uses: peter-evans/trigger-workflow-dispatch@v1
-        with:
-          workflow: 'Bump Version'
-          ref: 'rep' # 发布分支的名称
-          token: ${{ secrets.GITHUB_TOKEN }}
