@@ -18,7 +18,7 @@ jobs:
       - name: Get NPM Version 
         id: package-version
         run: | 
-          echo "package_version=$(node -p 'require(\"./package.json\").version')" >> "$GITHUB_ENV"
+          echo "package_version=$(node -p "require('./package.json').version")" >> "$GITHUB_ENV"
       - name: Reset Promotion Branch
         run: |
           git fetch origin main:main
