@@ -20,8 +20,7 @@ jobs:
           node-version: '20'
       - name: Get NPM Version 
         id: package-version
-        run: | 
-          echo "package_version=$(node -p "require('./package.json').version")"
+        run: |
           echo "package_version=$(node -p "require('./package.json').version")" >> "$GITHUB_ENV"
       - name: Reset Promotion Branch
         run: |
@@ -35,6 +34,8 @@ jobs:
         with:
           branch: production-promotion
           delete-branch: true
+          committer: github-actions[bot] <41898282+github-actions[bot]@users.noreply.github.com>
+          author: ${{ github.actor }} <${{ github.actor_id }}+${{ github.actor }}@users.noreply.github.com>
       - name: Enable Pull Request Automerge
         if: steps.cpr.outputs.pull-request-operation == 'created'
         uses: peter-evans/enable-pull-request-automerge@v3
