@@ -15,6 +15,9 @@ jobs:
       - uses: actions/checkout@v4
         with:
           ref: rep
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '20'
       - name: Get NPM Version 
         id: package-version
         run: | 
