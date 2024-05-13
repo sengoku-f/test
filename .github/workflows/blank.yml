@@ -26,8 +26,8 @@ jobs:
         run: |
           git fetch origin main:main
           git reset --hard main
-          echo 'version'=${{ package_version }}
-          npm pkg set 'version'=${{ package_version }}
+          echo 'version'=$package_version
+          npm pkg set 'version'=$package_version
       - name: Create Pull Request
         id: cpr
         uses: peter-evans/create-pull-request@v6
