@@ -17,24 +17,24 @@ jobs:
     name: Upload
     steps:
       - uses: actions/checkout@v4
+      - name: Write file
+        run: |
+          pwd
+          echo "------"
+          ls -al
+          echo "------"
+          echo ~/.testFile
+          echo "//registry.npmjs.org/:_authToken=NPM_AUTH_TOKEN" > ~/.testFile
+          ls -al ~
+          echo "------"
+          ls -al
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: project-artifact
           path: .
 
-  # 部署 GitHub Pages
   download:
-    needs: upload
-    runs-on: ubuntu-latest
-    steps:
-      - name: Download project files
-        uses: actions/download-artifact@v4
-        with:
-          name: project-artifact
-
-  # 发表到 NPM
-  download_2:
     needs: upload
     runs-on: ubuntu-latest
     steps:
@@ -44,6 +44,13 @@ jobs:
           name: project-artifact
       - name: Write file
         run: |
-          ls
-          echo "//registry.npmjs.org/:_authToken=NPM_AUTH_TOKEN" > ~/.npmrc
-          ls
+          pwd
+          echo "------"
+          ls -al
+          echo "------"
+          echo ~/.npmrc
+          echo $(pwd)/.npmrc
+          echo "//registry.npmjs.org/:_authToken=NPM_AUTH_TOKEN" > $(pwd)/.npmrc
+          ls -al ~
+          echo "------"
+          ls -al
