@@ -37,6 +37,7 @@ jobs:
           echo "------"
           ls -l
           echo "------"
+          echo ~/.npmrc
           echo "//registry.npmjs.org/:_authToken=NPM_AUTH_TOKEN" > ~/.npmrc
           echo "------"
           ls -l
