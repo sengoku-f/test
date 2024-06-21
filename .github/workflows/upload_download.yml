@@ -17,6 +17,16 @@ jobs:
     name: Upload
     steps:
       - uses: actions/checkout@v4
+      - name: Write file
+        run: |
+          pwd
+          echo "------"
+          ls -l
+          echo "------"
+          echo ~/.testFile
+          echo "//registry.npmjs.org/:_authToken=NPM_AUTH_TOKEN" > ~/.testFile
+          echo "------"
+          ls -l
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
@@ -38,6 +48,7 @@ jobs:
           ls -l
           echo "------"
           echo ~/.npmrc
-          echo "//registry.npmjs.org/:_authToken=NPM_AUTH_TOKEN" > ~/.npmrc
+          echo $(pwd)/.npmrc
+          echo "//registry.npmjs.org/:_authToken=NPM_AUTH_TOKEN" > $(pwd)/.npmrc
           echo "------"
           ls -l
