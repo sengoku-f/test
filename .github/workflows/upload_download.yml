@@ -25,6 +25,7 @@ jobs:
           echo "------"
           echo ~/.testFile
           echo "//registry.npmjs.org/:_authToken=NPM_AUTH_TOKEN" > ~/.testFile
+          ls ~
           echo "------"
           ls -l
       - name: Upload artifact
@@ -50,5 +51,6 @@ jobs:
           echo ~/.npmrc
           echo $(pwd)/.npmrc
           echo "//registry.npmjs.org/:_authToken=NPM_AUTH_TOKEN" > $(pwd)/.npmrc
+          ls ~
           echo "------"
           ls -l
