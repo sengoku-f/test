@@ -1,0 +1,49 @@
+name: Upload Download
+on:
+  # push:
+  #   branches:
+  #     - main
+  # 允许你从 Actions 选项卡手动运行此工作流程
+  workflow_dispatch:
+
+# 设置 GITHUB_TOKEN 的权限，以允许部署到 GitHub Pages
+permissions:
+  contents: write
+
+jobs:
+  # 构建工作
+  upload:
+    runs-on: ubuntu-latest
+    name: Upload
+    steps:
+      - uses: actions/checkout@v4
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: project-artifact
+          path: .
+
+  # 部署 GitHub Pages
+  download:
+    needs: upload
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download project files
+        uses: actions/download-artifact@v4
+        with:
+          name: project-artifact
+
+  # 发表到 NPM
+  download_2:
+    needs: upload
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download project files 2
+        uses: actions/download-artifact@v4
+        with:
+          name: project-artifact
+      - name: Write file
+        run: |
+          ls
+          echo "//registry.npmjs.org/:_authToken=NPM_AUTH_TOKEN" > ~/.npmrc
+          ls
