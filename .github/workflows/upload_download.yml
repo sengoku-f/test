@@ -21,13 +21,13 @@ jobs:
         run: |
           pwd
           echo "------"
-          ls -l
+          ls -al
           echo "------"
           echo ~/.testFile
           echo "//registry.npmjs.org/:_authToken=NPM_AUTH_TOKEN" > ~/.testFile
-          ls ~
+          ls -al ~
           echo "------"
-          ls -l
+          ls -al
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
@@ -46,11 +46,11 @@ jobs:
         run: |
           pwd
           echo "------"
-          ls -l
+          ls -al
           echo "------"
           echo ~/.npmrc
           echo $(pwd)/.npmrc
           echo "//registry.npmjs.org/:_authToken=NPM_AUTH_TOKEN" > $(pwd)/.npmrc
-          ls ~
+          ls -al ~
           echo "------"
-          ls -l
+          ls -al
