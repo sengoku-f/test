@@ -16,3 +16,4 @@ jobs:
       - name: commit
         run: |
           echo ${{ github.event.head_commit.message }}
+          echo "https://github.com/${{github.repository}}/commit/${{github.sha}}/checks/${{github.run_id}}"
