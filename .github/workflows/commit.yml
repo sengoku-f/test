@@ -1,0 +1,18 @@
+name: commit
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  # 构建工作
+  commit:
+    runs-on: ubuntu-latest
+    name: commit
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: commit
+        run: |
+          echo ${{ github.event.head_commit.message }}
